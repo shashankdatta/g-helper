@@ -707,6 +707,9 @@ Do you still want to continue?</value>
   <data name="StandardMode" xml:space="preserve">
     <value>Standard</value>
   </data>
+  <data name="Caffeinate" xml:space="preserve">
+    <value>Caffeinate</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>

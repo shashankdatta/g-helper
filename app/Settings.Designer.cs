@@ -61,6 +61,7 @@ namespace GHelper
             buttonBalanced = new RButton();
             buttonTurbo = new RButton();
             buttonFans = new RButton();
+            buttonCaffeinate = new RButton();
             panelCPUTitle = new Panel();
             picturePerf = new PictureBox();
             labelPerf = new Label();
@@ -373,6 +374,7 @@ namespace GHelper
             panelBattery.Controls.Add(buttonBatteryFull);
             panelBattery.Controls.Add(sliderBattery);
             panelBattery.Controls.Add(panelBatteryTitle);
+            panelBattery.Controls.Add(buttonCaffeinate);
             panelBattery.Dock = DockStyle.Top;
             panelBattery.Location = new Point(11, 1765);
             panelBattery.Margin = new Padding(0);
@@ -459,6 +461,28 @@ namespace GHelper
             labelBatteryTitle.Size = new Size(467, 32);
             labelBatteryTitle.TabIndex = 37;
             labelBatteryTitle.Text = "Battery Charge Limit";
+            //
+            // buttonCaffeinate
+            //
+            buttonCaffeinate.Activated = false;
+            buttonCaffeinate.BackColor = SystemColors.ControlLightLight;
+            buttonCaffeinate.BorderColor = Color.Transparent;
+            buttonCaffeinate.BorderRadius = 5;
+            buttonCaffeinate.Dock = DockStyle.Fill;
+            buttonCaffeinate.FlatAppearance.BorderSize = 0;
+            buttonCaffeinate.FlatStyle = FlatStyle.Flat;
+            buttonCaffeinate.ForeColor = SystemColors.ControlText;
+            buttonCaffeinate.Image = Properties.Resources.mug_sleep_icon;
+            buttonCaffeinate.ImageAlign = ContentAlignment.BottomCenter;
+            buttonCaffeinate.Margin = new Padding(4);
+            buttonCaffeinate.Name = "buttonCaffeinate";
+            buttonCaffeinate.Secondary = false;
+            buttonCaffeinate.Size = new Size(73, 36); 
+            buttonCaffeinate.Location = new Point(635, 67);
+            buttonCaffeinate.TabIndex = 1;
+            buttonCaffeinate.Text = Properties.Strings.Caffeinate;;
+            buttonCaffeinate.TextImageRelation = TextImageRelation.ImageAboveText;
+            buttonCaffeinate.UseVisualStyleBackColor = false;
             // 
             // panelFooter
             // 
@@ -2110,6 +2134,7 @@ namespace GHelper
         private RButton buttonMatrix;
         private RButton buttonKeyboardColor;
         private RButton buttonFans;
+        private RButton buttonCaffeinate;
         private Slider sliderBattery;
         private Panel panelGPUTitle;
         private PictureBox pictureGPU;

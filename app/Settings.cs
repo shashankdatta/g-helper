@@ -47,6 +47,7 @@ namespace GHelper
 
         bool batteryMouseOver = false;
         bool batteryFullMouseOver = false;
+        bool caffeinateMouseOver = false;
 
         bool sliderGammaIgnore = false;
 
@@ -249,6 +250,10 @@ namespace GHelper
             buttonBatteryFull.MouseLeave += ButtonBatteryFull_MouseLeave;
             buttonBatteryFull.Click += ButtonBatteryFull_Click;
 
+            buttonCaffeinate.MouseEnter += ButtonCaffeinate_MouseEnter;
+            buttonCaffeinate.MouseLeave += ButtonCaffeinate_MouseLeave;
+            buttonCaffeinate.Click += ButtonCaffeinate_Click;
+
             buttonControllerMode.Click += ButtonControllerMode_Click;
             buttonBacklight.Click += ButtonBacklight_Click;
 
@@ -258,7 +263,7 @@ namespace GHelper
             buttonAutoTDP.Click += ButtonAutoTDP_Click;
             buttonAutoTDP.BorderColor = colorTurbo;
 
-            Text = "G-Helper " + (ProcessHelper.IsUserAdministrator() ? "—" : "-") + " " + AppConfig.GetModelShort();
+            Text = "G-Helper(DEV)" + (ProcessHelper.IsUserAdministrator() ? "—" : "-") + " " + AppConfig.GetModelShort();
             TopMost = AppConfig.Is("topmost");
 
             //This will auto position the window again when it resizes. Might mess with position if people drag the window somewhere else.
@@ -593,6 +598,25 @@ namespace GHelper
         {
             batteryFullMouseOver = true;
             labelCharge.Text = Properties.Strings.BatteryLimitFull;
+        }
+
+        private void ButtonCaffeinate_Click(object? sender, EventArgs e)
+        {
+            // Toggle caffeinate feature
+            buttonCaffeinate.Image = Properties.Resources.mug_active_icon;
+            buttonCaffeinate.Activated = !buttonCaffeinate.Activated;
+            // Actual caffeinate functionality will be implemented later
+        }
+        private void ButtonCaffeinate_MouseLeave(object? sender, EventArgs e)
+        {
+            caffeinateMouseOver = false;
+            // RefreshSensors(true);
+        }
+
+        private void ButtonCaffeinate_MouseEnter(object? sender, EventArgs e)
+        {
+            caffeinateMouseOver = true;
+            // labelCharge.Text = Properties.Strings.BatteryLimitFull;
         }
 
         private void SettingsForm_Resize(object? sender, EventArgs e)
